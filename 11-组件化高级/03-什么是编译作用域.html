@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Github / Stack Overflow -->
+</head>
+<body>
+
+  <!-- 
+    父组件模板的所有东西都会在父级作用域内编译
+
+    子组件模板的所有东西都会在子级作用域内编译
+   -->
+
+  <div id="app">
+    <cpn v-show="isShow"></cpn>
+    <!-- isShow: false -->
+    <cpn></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>我是组件</h2>
+      <button v-show="isShow">按钮</button>
+      <!-- isShow: true -->
+    </div>    
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isShow: false
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              isShow: true
+            }
+          }
+        }        
+      }
+    })
+  </script>
+</body>
+</html>

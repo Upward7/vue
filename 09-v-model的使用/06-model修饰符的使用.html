@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 
+      v-model默认是在input事件中同步输入框的数据
+      lazy修饰符可以让数据在失去焦点或回车时才会更新
+     -->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+
+    <!-- 
+      默认情况下，输入框的内容都会被当做字符串类型处理
+      number修饰符可以让输入框中的内容自动转换成数字类型
+     -->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}-{{typeof age}}</h2>
+
+    <!-- 
+      trim修饰符可以过滤内容左右两边的空格
+     -->
+    <input type="text" v-model.trim="name">
+
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        age: 0
+      }
+    })
+  </script>
+</body>
+</html>

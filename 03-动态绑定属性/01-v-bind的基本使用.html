@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind 动态绑定属性 -->
+        <a v-bind:href="aHref">百度一下</a>
+        <!-- v-bind的简写 -->
+        <a :href="aHref">百度一下</a>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                aHref: 'http://www.baidu.com',
+            }
+        })
+    </script>
+</body>
+</html>

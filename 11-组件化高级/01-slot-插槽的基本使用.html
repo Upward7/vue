@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 组件的插槽是为了让我们封装的组件更具有扩展性 -->
+  <div id="app">
+    <cpn><button>按钮</button></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn>
+      <div>我是div元素</div>
+      <p>我是p元素</p>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>我是组件</h2>
+      <!-- 插槽的默认值 -->
+      <slot><span>哈哈哈</span></slot>
+    </div>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      components: {
+        cpn: {
+          template: '#cpn'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
